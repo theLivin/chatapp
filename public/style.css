@@ -1,0 +1,51 @@
+:root {
+  --primary-color: rgba(46, 46, 46, 0.815);
+  --secondary-color: white;
+}
+
+.brand {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: 16px "Raleway", "sans-serif";
+}
+
+form {
+  background: var(--primary-color);
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 0px;
+  width: 100%;
+}
+
+form input {
+  border: 0;
+  width: 100%;
+  margin-right: 0.5%;
+}
+form button.button {
+  width: 100%;
+  padding: 1px;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+}
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#messages li {
+  padding: 5px 10px;
+}
+#messages li:nth-child(odd) {
+  background: #eee;
+}

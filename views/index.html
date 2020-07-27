@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>chatapp</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton-framework/1.1.1/skeleton.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h3 class="brand">chatapp</h3>
+    <ul id="messages"></ul>
+    <div class="row">
+      <form action="">
+        <div class="ten columns">
+          <input type="text" id="msg" autocomplete="off" />
+        </div>
+        <div class="two column">
+          <button class="button" type="submit">
+            Send
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script src="socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="chat.js"></script>
+  </body>
+</html>
