@@ -27,11 +27,7 @@ $(function () {
 
   socket.on("new-message", function (data) {
     activity.text("");
-    messages.append(
-      $("<li>").html(
-        `<span class='u-bolder'>${data.username}<span> : ${data.message}`
-      )
-    );
+    messages.append($("<li>").html(`${data.username} : ${data.message}`));
   });
 
   // listen for typing
