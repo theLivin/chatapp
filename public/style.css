@@ -3,12 +3,6 @@
   --secondary-color: white;
 }
 
-.brand {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-  padding: 10px;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -24,20 +18,18 @@ form {
   left: 0;
   right: 0;
   margin-bottom: 0px;
-  width: 100%;
 }
 
 form input {
   border: 0;
-  width: 100%;
   margin-right: 0.5%;
 }
 form button.button {
-  width: 100%;
   padding: 1px;
   background: var(--secondary-color);
   color: var(--primary-color);
 }
+
 #messages {
   list-style-type: none;
   margin: 0;
@@ -48,4 +40,51 @@ form button.button {
 }
 #messages li:nth-child(odd) {
   background: #eee;
+}
+
+#activity {
+  padding: 15px;
+}
+
+.brand {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 10px;
+  text-align: center;
+}
+
+.main {
+  margin-bottom: 150px;
+  width: 80%;
+}
+
+.sidebar {
+  background-color: var(--secondary-color);
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: black;
+  width: 20%;
+  padding: 0.8%;
+  text-align: center;
+}
+
+/* utility classes */
+.u-full-width {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.u-inline-form * {
+  margin: 5px;
+  margin-top: -10px;
+}
+
+.u-inline-form {
+  display: flex;
+  justify-content: center;
+}
+
+.u-text-right {
+  text-align: right;
 }

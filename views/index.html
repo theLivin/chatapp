@@ -14,15 +14,37 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h3 class="brand">chatapp</h3>
-    <ul id="messages"></ul>
+    <div class="main">
+      <div class="brand">
+        <div>
+          <h3>chatapp</h3>
+        </div>
+        <div class="u-inline-form">
+          <input type="text" id="username" placeholder="Anonymous" />
+          <button id="change-username" class="button" style="color: white;">
+            change username
+          </button>
+        </div>
+      </div>
+      <div class="chatroom">
+        <ul id="messages"></ul>
+
+        <small id="activity"></small>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <h6 id="notification">Online</h6>
+      <ul id="online-users"></ul>
+    </div>
+
     <div class="row">
       <form action="">
         <div class="ten columns">
-          <input type="text" id="msg" autocomplete="off" />
+          <input type="text" class="u-full-width" id="msg" autocomplete="off" />
         </div>
         <div class="two column">
-          <button class="button" type="submit">
+          <button class="button u-full-width" type="submit">
             Send
           </button>
         </div>
