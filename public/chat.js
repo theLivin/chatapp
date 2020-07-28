@@ -58,7 +58,7 @@ $(function () {
   // new user connected
   socket.on("new-user-connected", (data) => {
     createOnlineLi(data.id, data.username);
-    notification.text("New user connected");
+    notification.text("New person joined the chat");
     restoreNotification();
   });
 
