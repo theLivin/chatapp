@@ -89,7 +89,10 @@ $(function () {
     li.addEventListener("click", function () {
       // send a private message event on username click
       if (msg.val()) {
-        socket.emit("private-message", { target: id, message: msg.val() });
+        socket.emit("private-message", {
+          target: id,
+          message: `${msg.val()} (private message)`,
+        });
         iSentAMessage();
         msg.val("");
       }
