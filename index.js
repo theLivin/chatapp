@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 });
 
 // start server and listen on port 3000 or any specified port
-const port = 3000 || process.env.PORT;
+const port = process.env.PORT || 3000;
 server.listen(port, () => {
   console.log("server running on port " + port);
 });
