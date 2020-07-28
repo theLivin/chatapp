@@ -1,6 +1,6 @@
 # ChatApp
 
-**chatroom application using socketio**
+_chatroom application using socketio_
 
 ### Some functionalities
 
