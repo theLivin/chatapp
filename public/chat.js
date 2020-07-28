@@ -6,6 +6,7 @@ $(function () {
   let activity = $("#activity");
   let onlineUsers = $("#online-users");
   let notification = $("#notification");
+  let msg = $("#msg");
 
   let timer;
 
@@ -16,10 +17,9 @@ $(function () {
   // send new message
   $("form").submit(function (e) {
     e.preventDefault();
-    let msg = $("#msg");
     if (msg.val()) {
       socket.emit("new-message", msg.val());
-      messages.append($("<li>").addClass("u-text-right").text(msg.val()));
+      iSentAMessage();
       msg.val("");
     }
     return false;
@@ -27,7 +27,11 @@ $(function () {
 
   socket.on("new-message", function (data) {
     activity.text("");
-    messages.append($("<li>").text(`${data.username} : ${data.message}`));
+    messages.append(
+      $("<li>").html(
+        `<span class='u-bolder'>${data.username}<span> : ${data.message}`
+      )
+    );
   });
 
   // listen for typing
@@ -57,17 +61,15 @@ $(function () {
 
   // new user connected
   socket.on("new-user-connected", (data) => {
-    onlineUsers.append(`<li id=${data.id}>${data.username}</li>`);
+    createOnlineLi(data.id, data.username);
     notification.text("New user connected");
-    setTimeout(() => {
-      notification.text("Online");
-    }, 2000);
+    restoreNotification();
   });
 
   // make already active users visible to new user
   socket.on("add-existing-users", (list) => {
     for (key in list) {
-      onlineUsers.append(`<li id=${key}>${list[key]}</li>`);
+      createOnlineLi(key, list[key]);
     }
   });
 
@@ -75,8 +77,33 @@ $(function () {
   socket.on("user-disconnected", (data) => {
     $(`#${data.id}`).remove();
     notification.text(`${data.username} left`);
+    restoreNotification();
+  });
+
+  // Utility Functions
+  function createOnlineLi(id, value) {
+    let li = document.createElement("li");
+    li.setAttribute("id", id);
+    li.className = "u-pointer";
+    li.innerText = value;
+    li.addEventListener("click", function () {
+      // send a private message event on username click
+      if (msg.val()) {
+        socket.emit("private-message", { target: id, message: msg.val() });
+        iSentAMessage();
+        msg.val("");
+      }
+    });
+    onlineUsers.append(li);
+  }
+
+  function iSentAMessage() {
+    messages.append($("<li>").addClass("u-text-right").text(msg.val()));
+  }
+
+  function restoreNotification() {
     setTimeout(() => {
       notification.text("Online");
     }, 2000);
-  });
+  }
 });

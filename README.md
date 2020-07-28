@@ -1,6 +1,6 @@
 # ChatApp
 
-_chatroom application using socketio_
+_chatroom application using [socket.io](https://socket.io/get-started/chat/#Integrating-Socket-IO)_
 
 ### Some functionalities
 
@@ -10,3 +10,5 @@ _chatroom application using socketio_
 - Add “{user} is typing” functionality.
 - Show who’s online.
 - Add private messaging.
+
+**socket.io cheatsheet available [here](https://socket.io/docs/emit-cheatsheet/)**

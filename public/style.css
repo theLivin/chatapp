@@ -88,3 +88,11 @@ form button.button {
 .u-text-right {
   text-align: right;
 }
+
+.u-pointer {
+  cursor: pointer;
+}
+
+.u-bolder {
+  font-weight: bolder;
+}

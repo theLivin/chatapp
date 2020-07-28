@@ -71,6 +71,17 @@ function onConnection(socket) {
     io.emit("username-updated", { id: socket.id, username: socket.username });
   });
 
+  // listen for private message and forward to target user
+  socket.on("private-message", (data) => {
+    console.log(data.target);
+    if (data.target !== socket.id) {
+      io.to(data.target).emit("new-message", {
+        username: socket.username,
+        message: data.message,
+      });
+    }
+  });
+
   // listen for disconnection
   socket.on("disconnect", () => {
     // console.log("user disconnected");
