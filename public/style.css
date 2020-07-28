@@ -1,5 +1,5 @@
 :root {
-  --primary-color: rgba(46, 46, 46, 0.815);
+  --primary-color: rgba(51, 138, 209, 0.815);
   --secondary-color: white;
 }
 
@@ -44,6 +44,7 @@ form button.button {
 
 #activity {
   padding: 15px;
+  font-weight: 300;
 }
 
 .brand {
@@ -51,16 +52,20 @@ form button.button {
   color: var(--secondary-color);
   padding: 10px;
   text-align: center;
+  width: 80%;
+  position: fixed;
+  top: 0;
 }
 
-.main {
-  margin-bottom: 150px;
+.chatroom {
   width: 80%;
+  margin-top: 10%;
+  margin-bottom: 100px;
 }
 
 .sidebar {
   background-color: var(--secondary-color);
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   color: black;
@@ -91,4 +96,17 @@ form button.button {
 
 .u-pointer {
   cursor: pointer;
+}
+
+.u-text-strong {
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+/* Media Queries */
+@media (max-width: 720px) {
+  .chatroom {
+    margin-top: 22%;
+    margin-bottom: 150px;
+  }
 }

@@ -47,7 +47,20 @@ function onConnection(socket) {
     username: socket.username,
   });
 
+  // show new user the other user online
   io.to(socket.id).emit("add-existing-users", online);
+
+  // notify everyone that a new user has joined
+  socket.broadcast.emit("new-message", {
+    username: "\tchatapp-assistant",
+    message: "a new user joined the chat...",
+  });
+
+  io.to(socket.id).emit("new-message", {
+    username: "chatapp-assistant",
+    message:
+      "Welcome to chatapp - an anonymous chatroom but you can change your username using the input field and the button above. You can also type a message and click a username on the right pane to send a private message to that user. 😊",
+  });
 
   // emit new message to other clients
   socket.on("new-message", (msg) => {
@@ -90,6 +103,11 @@ function onConnection(socket) {
     io.emit("user-disconnected", {
       id: socket.id,
       username: socket.username,
+    });
+    // notify everyone that someone left the chat
+    socket.broadcast.emit("new-message", {
+      username: "\tchatapp-assistant",
+      message: `${socket.username} left the chat...`,
     });
   });
 }
