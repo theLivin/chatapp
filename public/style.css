@@ -1,3 +1,4 @@
+/* set variables */
 :root {
   --primary-color: rgba(51, 138, 209, 0.815);
   --secondary-color: white;
@@ -10,6 +11,7 @@
   font-family: "Raleway", "sans-serif";
 }
 
+/* by elements */
 form {
   background: var(--primary-color);
   padding: 10px;
@@ -30,6 +32,12 @@ form button.button {
   color: var(--primary-color);
 }
 
+/* by ids */
+#activity {
+  padding: 15px;
+  font-weight: 300;
+}
+
 #messages {
   list-style-type: none;
   margin: 0;
@@ -42,11 +50,7 @@ form button.button {
   background: #eee;
 }
 
-#activity {
-  padding: 15px;
-  font-weight: 300;
-}
-
+/* by classes */
 .brand {
   background-color: var(--primary-color);
   color: var(--secondary-color);
@@ -61,6 +65,10 @@ form button.button {
   width: 80%;
   margin-top: 10%;
   margin-bottom: 100px;
+}
+
+.logo {
+  font-weight: 500;
 }
 
 .sidebar {
@@ -103,7 +111,7 @@ form button.button {
   color: var(--primary-color);
 }
 
-/* Media Queries */
+/* media queries */
 @media (max-width: 720px) {
   .chatroom {
     margin-top: 22%;
